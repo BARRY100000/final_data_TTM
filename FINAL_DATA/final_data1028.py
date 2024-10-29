@@ -11,15 +11,19 @@ from transformers import (
 )
 from tsfm_public.toolkit.dataset import ForecastDFDataset
 from tsfm_public.toolkit.time_series_preprocessor import TimeSeriesPreprocessor
+import os
+
 
 # 設置參數
-file_path = 'content/final_data_4.csv'
+file_path = 'content/final_data_sec_nonzero_sufficient.csv'
 label_columns = ['date', 'playerid', 'gameid', 'home_basic', 'home', 'win', 'team', 'name', 'date_num']
 context_length = 10
 forecast_horizon = 1
 batch_size = 32
 patch_length = 2
 output_file = 'content/nba_predictions.csv'
+
+output_dir="./output"
 
 # 1. 讀取數據並準備特徵
 nba_data = pd.read_csv(file_path)
@@ -142,7 +146,7 @@ for player_id, player_data in nba_data.groupby('playerid'):
         "Original": original_data[:, 0],  # 只取第一個特徵作為範例
         "Predicted": predicted_data[:, 0]
     })
-    player_results.to_csv(f'content/player_{player_id}_results.csv', index=False)
+    player_results.to_csv(f'content_players/player_{player_id}_results.csv', index=False)
 
 # 儲存所有球員的損失總結到 CSV 文件
 loss_summary_df = pd.DataFrame(loss_summary, columns=["PlayerID", "MSE", "MAE"])
