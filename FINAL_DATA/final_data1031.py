@@ -27,7 +27,7 @@ context_length = 10
 forecast_horizon = 1
 batch_size = 32
 patch_length = 2
-output_file = 'content/nba_predictions2.csv'
+output_file = 'content/nba_predictions4.csv'
 
 output_dir="./output"
 
@@ -90,7 +90,7 @@ for player_id, player_data in nba_data.groupby('playerid'):
         output_dir="./output",
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
-        num_train_epochs=5,
+        num_train_epochs=100,
         evaluation_strategy="epoch",
         logging_strategy="epoch",
         save_strategy="epoch",
@@ -98,7 +98,7 @@ for player_id, player_data in nba_data.groupby('playerid'):
         metric_for_best_model="eval_loss",
         greater_is_better=False,
     )
-    early_stopping = EarlyStoppingCallback(early_stopping_patience=3)
+    early_stopping = EarlyStoppingCallback(early_stopping_patience=5)
 
     # 訓練模型
     trainer = Trainer(
