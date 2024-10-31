@@ -29,6 +29,8 @@ batch_size = 32
 patch_length = 2
 output_file = 'content/nba_predictions2.csv'
 
+output_dir="./output"
+
 # 1. 讀取數據並準備特徵
 nba_data = pd.read_csv(file_path)
 feature_columns = [col for col in nba_data.columns if col in predict_columns or col in retain_columns]
