@@ -13,7 +13,7 @@ from tsfm_public.toolkit.time_series_preprocessor import TimeSeriesPreprocessor
 import os
 
 # 設置參數
-file_path = 'content/final_merged_with_lookforward.csv'
+file_path = 'content/final_data_sec_nonzero_sufficient.csv'
 predict_columns = ["estOFFRTG", "OFFRTG", "estDEFRTG", "DEFRTG", "estNETRTG", "NETRTG", "ASTpct", "ASTtoTOV", "ASTratio",
                    "ORBpct", "DRBpct", "REBpct", "TOVratio", "effFGpct", "TSpct", "USGpct", "estUSGpct", "estpace", 
                    "pace", "paceper40", "POS", "pie", "FGM", "FGA", "FGpct", "3PM", "3PA", "3Ppct", "FTM", "FTA", 
@@ -27,7 +27,7 @@ context_length = 10
 forecast_horizon = 1
 batch_size = 32
 patch_length = 2
-output_file = 'content/nba_predictions4.csv'
+output_file = 'content/nba_predictions5.csv'
 
 output_dir="./output"
 
