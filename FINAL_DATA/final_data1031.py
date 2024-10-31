@@ -90,7 +90,7 @@ for player_id, player_data in nba_data.groupby('playerid'):
         output_dir="./output",
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
-        num_train_epochs=100,
+        num_train_epochs=1000,
         evaluation_strategy="epoch",
         logging_strategy="epoch",
         save_strategy="epoch",
