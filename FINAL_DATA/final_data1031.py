@@ -27,7 +27,7 @@ context_length = 10
 forecast_horizon = 1
 batch_size = 32
 patch_length = 2
-output_file = 'content/nba_predictions5.csv'
+output_file = 'content/nba_predictions6.csv'
 
 output_dir="./output"
 
